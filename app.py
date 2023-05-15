@@ -54,9 +54,10 @@ def predictGameLevel():
     mmse = int(request.json['MMSE Score'])
     age = int(request.json['Age'])
     gameNum = int(request.json['Game Number'])
+    gameLvl = int(request.json['Game Level'])
 
     # Make a prediction using the loaded model
-    prediction = games_model.predict([[mmse, age, gameNum]])
+    prediction = games_model.predict([[mmse, age, gameNum, gameLvl]])
 
     # Convert the prediction to an integer and return it as a JSON response
     level = int(prediction[0])
